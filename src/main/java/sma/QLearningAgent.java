@@ -6,7 +6,6 @@ import jade.core.behaviours.Behaviour;
 import jade.core.behaviours.OneShotBehaviour;
 import jade.core.behaviours.SequentialBehaviour;
 import jade.lang.acl.ACLMessage;
-import org.w3c.dom.ls.LSOutput;
 
 import java.util.Random;
 
@@ -36,6 +35,7 @@ public class QLearningAgent extends Agent {
                     resetState();
 
                     while (!finished()){
+                        //System.out.println("Bonsoir");
                         currentState = stateI*QUtils.GRID_SIZE + stateJ;
                         act = chooseAction(0.4);
                         nextState = executeAction(act);
@@ -74,16 +74,17 @@ public class QLearningAgent extends Agent {
         };
 
         grid = new int[][]{
-                {1,0,0},
-                {-1,0,0},
-                {0,0,0},
+                {-1,0,1,0},
+                {-1,0,0,-1},
+                {0,0,-1,0},
+                {0,0,0,0},
         };
     }
 
     // initialiser vers l'etat initial
     public void resetState(){
-        stateI = 2;
-        stateJ = 0;
+        stateI = 3;
+        stateJ = 3;
     }
 
     private int chooseAction(double eps){
@@ -133,15 +134,18 @@ public class QLearningAgent extends Agent {
         System.out.println("*** path ***");
         resetState();
 
+        int cpt=0;
+
         while (!finished()){
             int act = chooseAction(0);
             System.out.println("State " + (stateI*QUtils.GRID_SIZE + stateJ) + " action : "+act);
 
             path += "State " + (stateI*QUtils.GRID_SIZE + stateJ) + " action : "+act + "\n";
             executeAction(act);
+            cpt++;
         }
         System.out.println("Final State " + (stateI*QUtils.GRID_SIZE + stateJ));
-        path += "Final State " + (stateI*QUtils.GRID_SIZE + stateJ);
+        path += "Final State " + (stateI*QUtils.GRID_SIZE + stateJ) + "\n" + "=>" + cpt;
 
     }
 

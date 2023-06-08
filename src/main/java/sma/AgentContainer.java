@@ -12,7 +12,7 @@ public class AgentContainer {
         profile.setParameter(ProfileImpl.MAIN_HOST, "localhost");
         jade.wrapper.AgentContainer agentContainer = runtime.createAgentContainer(profile);
 
-        AgentController qlearning = agentContainer.createNewAgent("qlearning2", "sma.QLearningAgent", new Object[]{});
+        AgentController qlearning = agentContainer.createNewAgent("qlearning3", "sma.QLearningAgent", new Object[]{});
 //        AgentController main = agentContainer.createNewAgent("main", "sma.MainAgent", new Object[]{});
 
         qlearning.start();
