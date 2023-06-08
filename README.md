@@ -18,3 +18,14 @@ maxQ(s', a') est la valeur maximale de la fonction Q pour le prochain état s' e
 L'algorithme Q-learning continue d'explorer et d'apprendre de l'environnement en effectuant des itérations jusqu'à ce qu'une politique optimale soit trouvée, c'est-à-dire une politique qui maximise la récompense cumulative attendue.
 
 Il convient de noter que l'algorithme Q-learning est basé sur l'hypothèse de Markov, ce qui signifie qu'il suppose que l'environnement est entièrement observable et que les états futurs dépendent uniquement de l'état actuel et de l'action prise.
+
+# L'approche SMA de l'algorithme Q Learning
+
+Dans cet approche, nous avons essayé de travailler sur une grid donnéé
+
+![crossover-image](src/assets/initialisation.png)
+
+Chaque agent va travailler sur la grid puis enverra le chemin optimum trouvé à un agent principale.
+![crossover-image](src/assets/vu_densenble_main_agent.png)
+
+Vu que la grid n'est pas trop volumineux on trouve pratiquement le meme chemin optimum à chaque fois
